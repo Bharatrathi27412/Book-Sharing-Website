@@ -10,7 +10,8 @@ firebaseConfig = {
   "messagingSenderId": "1026300589662",
   "appId": "1:1026300589662:web:edfafdb65f734f718066cf",
   "measurementId": "G-QLVQXP9VK8",
-  "databaseURL": "yourstoragebucketurl.com"
+  "databaseURL": "https://book-sharing-website-default-rtdb.firebaseio.com"
+
 }
 
 firebase= pyrebase.initialize_app(firebaseConfig)
