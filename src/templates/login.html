@@ -29,7 +29,7 @@
 
 		<div class="container-login100" style="background-image: url('{% static 'login/images/bg-02.jpg' %}');">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST">
+				<form class="login100-form validate-form" action="/postlogin/" method="POST">
 										{% csrf_token %}
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
@@ -58,7 +58,9 @@
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
+							<a href="{% url "dashboard" %}">
 							Login
+						</a>
 						</button>
 					</div>
 

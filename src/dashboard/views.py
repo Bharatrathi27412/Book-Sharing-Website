@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 from django.http import HttpResponse
 import pyrebase
 # Create your views here.
@@ -24,14 +24,8 @@ storage= firebase.storage()
 
 #def home_view(request,*args,**kwargs):
 #    return HttpResponse("<h1>Hello Shourabh</h1>")
-def login_view(request,*args,**kwargs):
-    return render(request,"login.html",{})
+def dashboard_view(request,*args,**kwargs):
+    return render(request,"dashboard.html",{})
 
-def postlogin_view(request):
-    email= request.POST.get('username')
-    password= request.POST.get('pass')
-    try:
-        auth.sign_in_with_email_and_password(email, password)
-        return redirect(request,"dashboard.html",{})
-    except:
-        return render(request,"login.html",{})
+
+# Create your views here.
