@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docket - Book Sharing</title>
+    <link rel="stylesheet" href="{% static 'dashboard/css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="searchbox">
+        <input type="text" name="box" placeholder="Search for the file">
+    </div>
+
+    <div class="btn1">
+        <a href="#"><i class="fa fa-search"></i></a>
+    </div>
+
+    <div class="btn2">
+        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    </div>
+
+    <div class="btn3">
+        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    </div>
+
+    <div class="btn4">
+        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    </div>
+
+    <div class="btn5">
+        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    </div>
+
+    <div class="btn6">
+        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    </div>
+
+    <div class="btn7">
+        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    </div>
+
+    <header>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Upload File</a></li>
+                <li><a href="#">Latest Uploads</a></li>
+                <li><a href="#">History</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="#"><button>Logout</button></a>
+    </header>
+
+    <div class="wrapper">
+        <img class="dash-logo" src="{% static "dashboard/images/docket_logo.png" %}" alt="docket logo">
+    </div>
+
+    <div class="wrapper">
+        <img class="dash-icon" src="{% static "dashboard/images/dashicon.png" %}" alt="dash icon">
+    </div>
+</body>
+</html>
