@@ -545,3 +545,19 @@ iframe {
     opacity: 1;
   }
 }
+
+/*------------------------------------------------------------------
+[ Logo ]*/
+
+.wrapper {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.dash-logo {
+  position: absolute;
+  top: 13%;
+  left: 15%;
+  transform: translate(-50%,-50%);
+  width: 300px;
+}

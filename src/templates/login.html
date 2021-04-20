@@ -26,8 +26,12 @@
 <body>
 
 	<div class="limiter">
-
+		
 		<div class="container-login100" style="background-image: url('{% static 'login/images/bg-02.jpg' %}');">
+			<div class="wrapper">
+				<img class="dash-logo" src="{% static 'login/images/docket logo.png' %}" alt="docket logo">
+			</div>
+			
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" action="/postlogin/" method="POST">
 										{% csrf_token %}
@@ -81,7 +85,7 @@
 		</div>
 	</div>
 
-
+	
 	<div id="dropDownSelect1"></div>
 
 	<script src="{% static 'login/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
