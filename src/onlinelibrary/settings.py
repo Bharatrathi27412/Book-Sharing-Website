@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'login',
     'registration',
     'dashboard',
+    'upload',
 ]
 
 MIDDLEWARE = [

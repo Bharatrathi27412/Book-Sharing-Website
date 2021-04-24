@@ -8,31 +8,201 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+    li, a {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        color: #32d5e1;
+        text-decoration: none;
+    }
+
+    button {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        color: #edf0f1;
+        text-decoration: none;
+    }
+
+    header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 160px 10%;
+    }
+
+    .logo {
+        cursor: pointer;
+        margin-right: auto;
+    }
+
+    .nav__links {
+        list-style: none;
+    }
+
+    .nav__links li {
+        display: inline-block;
+        padding: 0px 20px;
+    }
+
+    .nav__links li a {
+        transition: all 0.3s ease 0s;
+    }
+
+    .nav__links li a:hover {
+        color: #0088a9
+    }
+    button {
+        margin-left: 20px;
+        padding: 9px 25px;
+        background-color: rgb(28, 199, 241, 1);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+    }
+
+    button:hover {
+        background-color: rgba(28 ,199, 241, 0.6);
+    }
+    body{
+    background-color: #dee9ff;
+}
+
+.registration-form{
+	padding: 50px 0;
+}
+
+.registration-form form{
+    background-color: #fff;
+    max-width: 600px;
+    margin: auto;
+    padding: 50px 70px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .form-icon{
+	text-align: center;
+    background-color: #5891ff;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 50px;
+    line-height: 100px;
+}
+
+.registration-form .item{
+	border-radius: 20px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+}
+
+.registration-form .create-account{
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #5791ff;
+    border: none;
+    color: white;
+    margin-top: 20px;
+}
+
+.registration-form .social-media{
+    max-width: 600px;
+    background-color: #fff;
+    margin: auto;
+    padding: 35px 0;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    color: #9fadca;
+    border-top: 1px solid #dee9ff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .social-icons{
+    margin-top: 30px;
+    margin-bottom: 16px;
+}
+
+.registration-form .social-icons a{
+    font-size: 23px;
+    margin: 0 3px;
+    color: #5691ff;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 45px;
+    display: inline-block;
+    height: 45px;
+    text-align: center;
+    background-color: #fff;
+    line-height: 45px;
+}
+
+.registration-form .social-icons a:hover{
+    text-decoration: none;
+    opacity: 0.6;
+}
+
+@media (max-width: 576px) {
+    .registration-form form{
+        padding: 50px 20px;
+    }
+
+    .registration-form .form-icon{
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+        line-height: 70px;
+    }
+}
+
+</style>
 </head>
+
 <body>
+  <header>
+      <nav>
+          <ul class="nav__links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Upload File</a></li>
+              <li><a href="#">Latest Uploads</a></li>
+              <li><a href="#">History</a></li>
+          </ul>
+      </nav>
+      <a class="cta" href="#"><button>Logout</button></a>
+  </header>
+
     <div class="registration-form">
-        <form>
+        <form  action="/postupload/" method='POST' enctype="multipart/form-data">
+          {% csrf_token %}
             <div class="form-icon">
                 <span><i class="icon-share-alt"></i></span>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" id="username" placeholder="Book Name">
+                <input type="text" class="form-control item" name="name" placeholder="Book Name">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" id="password" placeholder="Year ">
+                <input type="text" class="form-control item" name="category" placeholder="Category ">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" id="email" placeholder="Sem">
+                <input type="text" class="form-control item" name="sem" placeholder="Semester">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" id="text" placeholder="Description">
+                <input type="text" class="form-control item" name="description" placeholder="Description">
             </div>
             <div class="form-group">
-              <button type="button" class="btn btn-block create-account">Upload File</button>
+              <input type= "file" name="books" class="form-control item" accept=".pdf"/>
           </div>
             <div class="form-group">
-                <button type="button" class="btn btn-block create-account">Confirm</button>
-            </div>
+              <button type="submit" class="btn btn-block create-account">Upload File</button>
         </form>
 
     </div>
