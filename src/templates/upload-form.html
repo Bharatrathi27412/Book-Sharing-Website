@@ -100,7 +100,7 @@
 .registration-form .item{
 	border-radius: 20px;
     margin-bottom: 25px;
-    padding: 10px 20px;
+    padding: 7px 14px;
 }
 
 .registration-form .create-account{
@@ -168,17 +168,19 @@
 </head>
 
 <body>
+    <form action="/logout/">
   <header>
       <nav>
           <ul class="nav__links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Upload File</a></li>
+              <li><a href="{% url "dashboard" %}">Home</a></li>
+              <li><a href="{% url "upload" %}">Upload File</a></li>
               <li><a href="#">Latest Uploads</a></li>
               <li><a href="#">History</a></li>
           </ul>
       </nav>
-      <a class="cta" href="#"><button>Logout</button></a>
+      <a class="cta" href="#"><button type="submit">Logout</button></a>
   </header>
+  </form>
 
     <div class="registration-form">
         <form  action="/postupload/" method='POST' enctype="multipart/form-data">
@@ -190,22 +192,33 @@
                 <input type="text" class="form-control item" name="name" placeholder="Book Name">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" name="category" placeholder="Category ">
+                <select id="category" class="form-control item" name="category">
+                    <option value="Category"> Select Category</option>
+                    <option value="Engineering"> Engineering</option>
+                    <option value="Medical"> Medical</option>
+                    <option value="Law"> Law</option>
+                    <option value="Economics"> Economics</option>
+                    <option value="Coding"> Coding</option>
+                    <option value="Others"> Others</option>
+                </select>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" name="sem" placeholder="Semester">
+                <input type="text" class="form-control item" name="author" placeholder="Author Name">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control item" name="description" placeholder="Description">
             </div>
             <div class="form-group">
-              <input type= "file" name="books" class="form-control item" accept=".pdf"/>
+              <input type= "file" id="uploadFile" name="books" class="form-control item" accept=".pdf"/>
           </div>
             <div class="form-group">
               <button type="submit" class="btn btn-block create-account">Upload File</button>
+            </div>
+            <div>
         </form>
 
     </div>
+    <script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <!-- <script src="scripts.js"></script> -->

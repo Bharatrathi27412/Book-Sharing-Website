@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'registration',
     'dashboard',
     'upload',
+    'booklist',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
 ]
+

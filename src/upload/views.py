@@ -23,26 +23,37 @@ db=firebase.database()
 auth=firebase.auth()
 storage= firebase.storage()
 
-#def home_view(request,*args,**kwargs):
-#    return HttpResponse("<h1>Hello Shourabh</h1>")
+books= db.child("books").child("dsa").get()
+d= dict()
+s= str()
+for i in books.each():
+    d=i.val()["url"]
+    s= d["downloadTokens"]
+   # print(s)
+    
 
 def upload_view(request,*args,**kwargs):
-    return render(request,"upload-form.html",{})
-
+    a=storage.child("books/dsa/Resume.pdf").get_url(None)
+    #print(a)
+    u= a+"&token="+s
+    #print(u)
+    return render(request,"upload-form.html",{"url":u})
 
 def postupload_view(request,*args,**kwargs):
     if request.method == 'POST':
         uploaded_file= request.FILES['books']
-        #print(uploaded_file.name)
     name= request.POST.get('name')
-    sem= request.POST.get('sem')
+    author= request.POST.get('author')
     description= request.POST.get('description')
     category= request.POST.get('category')
     try:
         path= category+"/"+name+".pdf"
-        storage.child("books").child(path).put(uploaded_file)
-        data= {'name':name,'semester':sem,'description':description,'category':category}
-        db.child('books').push(data)
+        url=storage.child("books").child(path).put(uploaded_file)
+        #a=storage.child("books/dsa/resume.pdf").get_url(None)
+        #u= a+s
+        data= {'name':name,'description':description,"author":author,"url":url}
+        db.child('books').child(category).push(data)
     except Exception as e:
         print(e)
     return render(request,"upload-form.html",{})
+

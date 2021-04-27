@@ -35,7 +35,10 @@ def postsignup_view(request):
     data={"username":username,"email_id":email,"organization_name":organ_name}
     try:
         auth.create_user_with_email_and_password(email, password)
-        db.child("users").push(data)
+        user=auth.sign_in_with_email_and_password(email, password)  
+        uid = user['localId']
+        print(uid)      
+        db.child("users").child(uid).push(data)
     except:
         return render(request,"signup.html",{})
     return render(request,"login.html",{})

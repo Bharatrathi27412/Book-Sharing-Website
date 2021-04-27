@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <form>
+        {% csrf_token %}
+        <h1>Medical</h1>
+
+        {% for i,j in list %}
+        <li><a href={{ j }} download>{{ i }}</a></li>
+        {% endfor %}
+
+    </form>
+
+</body>
+
+</html>

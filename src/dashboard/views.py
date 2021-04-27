@@ -25,7 +25,11 @@ storage= firebase.storage()
 #def home_view(request,*args,**kwargs):
 #    return HttpResponse("<h1>Hello Shourabh</h1>")
 def dashboard_view(request,*args,**kwargs):
-    return render(request,"dashboard.html",{})
+  #email= request.session['email']
+  return render(request,"dashboard.html",{})
 
 
 # Create your views here.
+
+    
+
