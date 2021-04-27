@@ -24,14 +24,37 @@ storage= firebase.storage()
 
 #def home_view(request,*args,**kwargs):
 #    return HttpResponse("<h1>Hello Shourabh</h1>")
+#a= str()
 def login_view(request,*args,**kwargs):
     return render(request,"login.html",{})
 
 def postlogin_view(request):
-    email= request.POST.get('username')
+    email= request.POST.get('email')
     password= request.POST.get('pass')
+    global a
+    a= email
+    #print(a)
+    print(email)
+    #request.session['email']=email
     try:
-        auth.sign_in_with_email_and_password(email, password)
-        return redirect(request,"dashboard.html",{})
+        user= auth.sign_in_with_email_and_password(email, password)  
+        uid = user['localId']
+        print(uid)      
+        return render(request,"dashboard.html",{"data":email})
     except:
         return render(request,"login.html",{})
+#print(a)
+
+def logout_view(request):
+    try:
+        auth.current_user=None
+        return render(request,"login.html",{})
+    except Exception as e:
+        print(e)    
+        
+def dashboard_view(request):
+    return render(request,"dashboard.html",{"data":a})
+
+#user=auth.sign_in_with_email_and_password("shourabhmaloo@gmail.com", "1234567890")  
+#uid = user['localId']
+#print(uid)

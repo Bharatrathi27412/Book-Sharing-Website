@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from login.views import login_view,postlogin_view
+from login.views import login_view,postlogin_view,logout_view, dashboard_view
 from registration.views import signup_view, postsignup_view
-from dashboard.views import dashboard_view
+#from dashboard.views import dashboard_view
 from upload.views import upload_view,postupload_view
+from booklist.views import englist_view,medlist_view,lawlist_view,ecolist_view,otherlist_view,codelist_view
 
 urlpatterns = [
     #path('home/',home_view,name='home_view'),
@@ -26,9 +27,16 @@ urlpatterns = [
     path('signup/',signup_view,name='signup'),
     path('postsignup/',postsignup_view,name='post_signup'),
     path('postlogin/',postlogin_view,name='post_login'),
-    path('dashboard',dashboard_view,name='dashboard'),
+    path('dashboard/',dashboard_view,name='dashboard'),
     path('upload/',upload_view,name='upload'),
     path('postupload/',postupload_view,name='postupload'),
+    path('englist/',englist_view,name="englist"),
+    path('medlist/',medlist_view,name="medlist"),
+    path('lawlist/',lawlist_view,name="lawlist"),
+    path('ecolist/',ecolist_view,name="ecolist"),
+    path('otherlist/',otherlist_view,name="otherlist"),
+    path('codelist/',codelist_view,name="codelist"),
+    path('logout/',logout_view,name='logout'),
     path('admin/', admin.site.urls),
 
 

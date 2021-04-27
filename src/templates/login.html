@@ -33,7 +33,7 @@
 			</div>
 			
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="/postlogin/" method="POST">
+				<form class="login100-form validate-form" method="POST" action="/postlogin/">
 										{% csrf_token %}
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
@@ -61,10 +61,8 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							<a href="{% url "dashboard" %}">
+						<button type="submit" class="login100-form-btn">
 							Login
-						</a>
 						</button>
 					</div>
 

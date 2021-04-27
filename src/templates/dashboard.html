@@ -8,51 +8,126 @@
     <title>Docket - Book Sharing</title>
     <link rel="stylesheet" href="{% static 'dashboard/css/main.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .t1 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #32d5e1;
+            text-decoration: none;
+            position: absolute;
+            top: 52%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+        }
+    
+        .t2 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #32d5e1;
+            text-decoration: none;
+            position: absolute;
+            top: 52%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+        }
+    
+        .t3 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #32d5e1;
+            text-decoration: none;
+            position: absolute;
+            top: 72%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+        }
+    
+        .t4 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #32d5e1;
+            text-decoration: none;
+            position: absolute;
+            top: 72%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+        }
+    
+        .t5 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #32d5e1;
+            text-decoration: none;
+            position: absolute;
+            top: 92%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+        }
+    
+        .t6 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #32d5e1;
+            text-decoration: none;
+            position: absolute;
+            top: 92%;
+            left: 80%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body>
-
+    <form action="/logout/">
+        {% csrf_token %}
     <div class="searchbox">
         <input type="text" name="box" placeholder="Search for the file">
     </div>
 
-    <div class="btn1">
+    <div class="btn1"> 
         <a href="#"><i class="fa fa-search"></i></a>
     </div>
 
-    <div class="btn2">
-        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    <div class="btn2"> <!-- medical -->
+        <a href="{% url "medlist" %}"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
     </div>
 
-    <div class="btn3">
-        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    <div class="btn3"> <!-- eco -->
+        <a href="{% url "ecolist" %}"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
     </div>
 
-    <div class="btn4">
-        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    <div class="btn4"> <!-- others -->
+        <a href="{% url "otherlist" %}"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
     </div>
 
-    <div class="btn5">
-        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    <div class="btn5">  <!-- engineering -->
+        <a href="{% url "englist" %}"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
     </div>
 
-    <div class="btn6">
-        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    <div class="btn6"> <!-- law -->
+        <a href="{% url "lawlist" %}"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
     </div>
 
-    <div class="btn7">
-        <a href="#"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
+    <div class="btn7"> <!-- coding -->
+        <a href="{% url "codelist" %}"><i class="fa fa-folder-open" style="font-size:100px;color:rgb(255, 200, 118)"></i></a>
     </div>
 
     <header>
         <nav>
             <ul class="nav__links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Upload File</a></li>
+                <li><a href="{% url "dashboard" %}">Home</a></li>
+                <li><a href="{% url "upload" %}">Upload File</a></li>
                 <li><a href="#">Latest Uploads</a></li>
                 <li><a href="#">History</a></li>
+                <li style=color:black>Hello, {{ data }}</li>
             </ul>
         </nav>
-        <a class="cta" href="#"><button>Logout</button></a>
+        <a class="cta" href="#"><button type="submit">Logout</button></a>
     </header>
 
     <div class="wrapper">
@@ -61,6 +136,30 @@
 
     <div class="wrapper">
         <img class="dash-icon" src="{% static 'dashboard/images/dashicon.png' %}" alt="dash icon">
+    </div>
+
+    <div class="t1">
+        <p>Engineering</p>
+    </div>
+    
+    <div class="t2">
+        <p>Medical</p>
+    </div>
+    
+    <div class="t3">
+        <p>Law</p>
+    </div>
+    
+    <div class="t4">
+        <p>Economics</p>
+    </div>
+    
+    <div class="t5">
+        <p>Coding</p>
+    </div>
+    
+    <div class="t6">
+        <p>Others</p>
     </div>
 </body>
 </html>
