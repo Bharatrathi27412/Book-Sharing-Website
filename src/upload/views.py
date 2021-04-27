@@ -23,21 +23,10 @@ db=firebase.database()
 auth=firebase.auth()
 storage= firebase.storage()
 
-books= db.child("books").child("dsa").get()
-d= dict()
-s= str()
-for i in books.each():
-    d=i.val()["url"]
-    s= d["downloadTokens"]
-   # print(s)
     
 
 def upload_view(request,*args,**kwargs):
-    a=storage.child("books/dsa/Resume.pdf").get_url(None)
-    #print(a)
-    u= a+"&token="+s
-    #print(u)
-    return render(request,"upload-form.html",{"url":u})
+    return render(request,"upload-form.html",{})
 
 def postupload_view(request,*args,**kwargs):
     if request.method == 'POST':
