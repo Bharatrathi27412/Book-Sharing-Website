@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
+from django.contrib import messages
+
 import pyrebase
 # Create your views here.
 
@@ -34,14 +36,16 @@ def postlogin_view(request):
     global a
     a= email
     #print(a)
-    print(email)
+    #print(email)
     #request.session['email']=email
     try:
         user= auth.sign_in_with_email_and_password(email, password)  
         uid = user['localId']
-        print(uid)      
+        #print(uid) 
+        messages.success(request, 'Succesfully logged in!!')     
         return render(request,"dashboard.html",{"data":email})
     except:
+        messages.error(request, 'Incorrect username or password')
         return render(request,"login.html",{})
 #print(a)
 

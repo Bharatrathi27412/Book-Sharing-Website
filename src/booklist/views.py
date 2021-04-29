@@ -160,3 +160,29 @@ def codelist_view(request,*args,**kwargs):
   #print(l1)
   return render(request,"codelist.html",{"list":l1.items()})
 
+def alluploads_view(request,*args,**kwargs):
+  l2= ['Engineering','Medical','Law','Coding','Economics','Others']
+  l3= dict()
+  for j in l2:
+    l= list()
+    d= dict()
+    s= str()
+    l1= dict()
+    data= db.child("books").child(j).get()
+    for i in data.each():
+      a= i.val()['name']
+      l.append(i.val()['name'])
+      d=i.val()["url"]
+      s= d["downloadTokens"]
+      l1[a]=s
+    for k in l1:
+      path= j+"/"+k+".pdf"
+      #print(path)
+      url= storage.child("books").child(path).get_url(None)
+      url= url+"&token="+l1[k]
+      l1[k]=url 
+      l3[k]=url
+
+  #print(l)
+  print(l3)
+  return render(request,"alluploads.html",{"list":l3.items()})

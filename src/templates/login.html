@@ -42,6 +42,14 @@
 					<span class="login100-form-title p-b-34 p-t-27">
 						Log in
 					</span>
+					{% if messages %}
+					{% for message in messages %}
+					<div class="alert alert-{{ message.tags }} alert-dismissible text-center" role="alert">
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close"><spanaria-hidden="true">&times;</span></button>
+						<strong>{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error{% else %}{{ message.tags|title }}{% endif%}!</strong> {{ message }}
+					</div>
+					{% endfor %}
+					{% endif %}
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="email" name="email" placeholder="Email id">
