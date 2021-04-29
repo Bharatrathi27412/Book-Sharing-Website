@@ -19,7 +19,7 @@ from login.views import login_view,postlogin_view,logout_view, dashboard_view
 from registration.views import signup_view, postsignup_view
 #from dashboard.views import dashboard_view
 from upload.views import upload_view,postupload_view
-from booklist.views import englist_view,medlist_view,lawlist_view,ecolist_view,otherlist_view,codelist_view
+from booklist.views import englist_view,medlist_view,lawlist_view,ecolist_view,otherlist_view,codelist_view,alluploads_view
 
 urlpatterns = [
     #path('home/',home_view,name='home_view'),
@@ -37,6 +37,7 @@ urlpatterns = [
     path('otherlist/',otherlist_view,name="otherlist"),
     path('codelist/',codelist_view,name="codelist"),
     path('logout/',logout_view,name='logout'),
+    path('all/',alluploads_view,name='all'),
     path('admin/', admin.site.urls),
 
 

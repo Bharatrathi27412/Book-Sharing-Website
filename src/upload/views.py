@@ -23,7 +23,6 @@ db=firebase.database()
 auth=firebase.auth()
 storage= firebase.storage()
 
-    
 
 def upload_view(request,*args,**kwargs):
     return render(request,"upload-form.html",{})
@@ -39,7 +38,7 @@ def postupload_view(request,*args,**kwargs):
         path= category+"/"+name+".pdf"
         url=storage.child("books").child(path).put(uploaded_file)
         #a=storage.child("books/dsa/resume.pdf").get_url(None)
-        #u= a+s
+        #u= a+s 
         data= {'name':name,'description':description,"author":author,"url":url}
         db.child('books').child(category).push(data)
     except Exception as e:
