@@ -86,16 +86,18 @@
 <body>
 
 
-    <form action="/logout/">
         {% csrf_token %}
-
+    <form method="POST" action="/search/" id="s">
+        {% csrf_token %}
     <div class="searchbox">
         <input type="text" name="box" placeholder="Search for the file">
     </div>
 
     <div class="btn1"> 
-        <a href="#"><i class="fa fa-search"></i></a>
+        <button type="submit" onclick="location.href='/search/'" form="s"><i class="fa fa-search"></i></button>
     </div>
+    </form>
+    <form action="/logout/">
     {% if messages %}
     {% for message in messages %}
     <div class="alert alert-{{ message.tags }} alert-dismissible text-center" role="alert">
