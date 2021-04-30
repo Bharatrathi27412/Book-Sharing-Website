@@ -1,17 +1,20 @@
-<!DOCTYPE html>
-<html>
+{% extends 'basic.html' %}
 
-<body>
-    <form>
-        {% csrf_token %}
-        <h1>Medical</h1>
+{% block title %} Docket - Book Sharing {% endblock %}
 
-        {% for i,j in list %}
-        <li><a href={{ j }} download>{{ i }}</a></li>
-        {% endfor %}
+{% block css %}{% endblock %}
 
-    </form>
+{% block body %} 
+<form>
+    {% csrf_token %}
+    <h1>Medical</h1>
 
-</body>
-
-</html>
+    {% for i,j in list %}
+    <div id="list2">
+        <ul class="bklist">
+            <li><a href={{ j }} download>{{ i }}</a></li>
+        </ul>
+    </div>
+    {% endfor %}
+</form>
+{% endblock %}

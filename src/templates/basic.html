@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+        :root {
+            --main-bg-color: #eff5fe;
+        }
+        body, html{
+            font-family: syste-ui;
+            background: var(--main-bg-color);
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .searchbox{
+            position: absolute;
+            top: 10%;
+            left: 80%;
+            transform: translate(-50%,-50%);
+        }
+        
+        input{
+            border: 3px solid #32d5e1;
+            height: 40px;
+            width: 300px;
+            border-radius: 50px;
+            padding: 0px 10px;
+        }
+        
+        .btn1{
+            position: absolute;
+            top: 10%;
+            left: 92%;
+            transform: translate(-50%,-50%);
+        }
+
+        .nav__links li a {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #32d5e1;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: #edf0f1;
+            text-decoration: none;
+        }
+
+        header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 160px 10%;
+        }
+
+        .logo {
+            cursor: pointer;
+            margin-right: auto;
+        }
+
+        .nav__links {
+            list-style: none;
+        }
+
+        .nav__links li {
+            display: inline-block;
+            padding: 0px 20px;
+        }
+
+        .nav__links li a {
+            transition: all 0.3s ease 0s;
+        }
+
+        .nav__links li a:hover {
+            color: #0088a9
+        }
+
+        button {
+            margin-left: 20px;
+            padding: 9px 25px;
+            background-color: rgb(28, 199, 241, 1);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease 0s;
+        }
+
+        button:hover {
+            background-color: rgba(28 ,199, 241, 0.6);
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            width: 1000px;
+        }
+ 
+        .dash-logo {
+            position: absolute;
+            top: 13%;
+            left: 15%;
+            transform: translate(-50%,-50%);
+            width: 300px;
+        }
+
+        .dash-icon {
+            position: absolute;
+            top: 70%;
+            left: 25%;
+            transform: translate(-50%,-50%);
+        }
+
+        h1{
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 26px;
+            color: #0c75ec;
+            text-decoration: none;
+            position: absolute;
+            top: 40%;
+            left: 58%;
+            transform: translate(-50%, -50%);
+        }
+
+        .bklist li{ 
+            position: relative;
+            left: 104%;
+            transform: translate(-50%,-50%);
+        }
+
+        .bklist li a{
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: black;
+            text-decoration: none;
+        }
+        {% block css %} {% endblock %}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="{% url "dashboard" %}">Home</a></li>
+                <li><a href="{% url "upload" %}">Upload File</a></li>
+                <li><a href="#">Latest Uploads</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="#"><button type="submit">Logout</button></a>
+    </header>
+
+    <form method="POST" action="/search/" id="s">
+        {% csrf_token %}
+    <div class="searchbox">
+        <input type="text" name="box" placeholder="Search for the file">
+    </div>
+
+    <div class="btn1"> 
+        <button type="submit" onclick="location.href='/search/'" form="s"><i class="fa fa-search"></i></button>
+    </div>
+    </form>
+
+    <div class="wrapper">
+        <img class="dash-logo" src="{% static 'dashboard/images/docket logo.png' %}" alt="docket logo">
+    </div>
+
+    <div class="wrapper">
+        <img class="dash-icon" src="{% static 'dashboard/images/dashicon.png' %}" alt="dash icon">
+    </div>
+
+    {% block body %} {% endblock %}
+</body>
+</html>

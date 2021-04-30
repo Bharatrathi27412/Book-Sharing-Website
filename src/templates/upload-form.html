@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
     <meta charset="utf-8">
@@ -163,10 +164,27 @@
     }
 }
 
+    .wrapper {
+        margin: 0 auto;
+         width: 1000px;
+    }
+ 
+    .dash-logo {
+        position: absolute;
+        top: 13%;
+        left: 15%;
+        transform: translate(-50%,-50%);
+        width: 300px;
+    }
+
 </style>
 </head>
 
 <body>
+    <div class="wrapper">
+        <img class="dash-logo" src="{% static 'dashboard/images/docket logo.png' %}" alt="docket logo">
+    </div>
+
     <form action="/logout/">
   <header>
       <nav>
@@ -174,7 +192,6 @@
               <li><a href="{% url "dashboard" %}">Home</a></li>
               <li><a href="{% url "upload" %}">Upload File</a></li>
               <li><a href="#">Latest Uploads</a></li>
-              <li><a href="#">History</a></li>
           </ul>
       </nav>
       <a class="cta" href="#"><button type="submit">Logout</button></a>
