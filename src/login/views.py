@@ -62,3 +62,18 @@ def dashboard_view(request):
 #user=auth.sign_in_with_email_and_password("shourabhmaloo@gmail.com", "1234567890")  
 #uid = user['localId']
 #print(uid)
+def forgotpass_view(request):
+    return render(request,"forgotpass.html",{})
+
+def postforgotpass_view(request):
+    try:
+        email= request.POST.get("Email")
+        auth.send_password_reset_email(email)
+        messages.info(request, 'Check your inbox for password reset link')    
+        return render(request,"login.html",{})
+    except Exception as e:
+        print(e)
+        messages.error(request, 'Sign in please')
+        return render(request,"login.html",{})
+
+

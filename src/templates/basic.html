@@ -151,16 +151,19 @@
     </style>
 </head>
 <body>
+    <form action="/logout/">
+
     <header>
         <nav>
             <ul class="nav__links">
                 <li><a href="{% url "dashboard" %}">Home</a></li>
                 <li><a href="{% url "upload" %}">Upload File</a></li>
-                <li><a href="#">Latest Uploads</a></li>
+                <li><a href="{% url "all" %}">Latest Uploads</a></li>
             </ul>
         </nav>
         <a class="cta" href="#"><button type="submit">Logout</button></a>
     </header>
+    </form>
 
     <form method="POST" action="/search/" id="s">
         {% csrf_token %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+
+    <form action="/postforgotpass/" method="POST">
+            {% csrf_token %}
+        <label for="email">Email address:</label>
+        <input type="email" id="email" name="Email" placeholder="Email.." required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+
+</body>
+
+</html>
