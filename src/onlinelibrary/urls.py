@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path
-from login.views import login_view,postlogin_view,logout_view, dashboard_view
+from login.views import login_view,postlogin_view,logout_view, dashboard_view,forgotpass_view,postforgotpass_view
 from registration.views import signup_view, postsignup_view
 from dashboard.views import search_view
 #from dashboard.views import dashboard_view
@@ -42,6 +42,8 @@ urlpatterns = [
     path('all/',alluploads_view,name='all'),
     path('admin/', admin.site.urls),
     path('search/',search_view,name='search'),
+    path('forgotpass/',forgotpass_view,name='forgotpass'),
+    path('postforgotpass/',postforgotpass_view,name='postforgotpass'),
     # url(r'^search/',search_view,name='search'),
 
 

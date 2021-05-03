@@ -186,3 +186,5 @@ def alluploads_view(request,*args,**kwargs):
   #print(l)
   #print(l3)
   return render(request,"alluploads.html",{"list":l3.items()})
+
+    
