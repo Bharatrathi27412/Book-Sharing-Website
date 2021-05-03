@@ -184,5 +184,5 @@ def alluploads_view(request,*args,**kwargs):
       l3[k]=url
 
   #print(l)
-  print(l3)
+  #print(l3)
   return render(request,"alluploads.html",{"list":l3.items()})
