@@ -2,17 +2,21 @@
 
 {% block title %} Docket - Book Sharing {% endblock %}
 
+{% block head %} 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
 {% block css %}{% endblock %}
 
 {% block body %} 
 <form>
     {% csrf_token %}
-    <h1>Law</h1>
+    <h1>Information Technology</h1>
 
     {% for i,j in list %}
     <div id="list2">
         <ul class="bklist">
-            <li><a href={{ j }} download>{{ i }}</a></li>
+            <li><a href={{ j }} download target="_blank">{{ i }} </a></li>
         </ul>
     </div>
     {% endfor %}

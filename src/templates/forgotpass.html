@@ -1,18 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+{% load static %}
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docket - Book Sharing</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+        :root {
+            --main-bg-color: #eff5fe;
+        }
+        body, html{
+            font-family: syste-ui;
+            background: var(--main-bg-color);
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        input{
+            border: 3px solid #32d5e1;
+            height: 40px;
+            width: 300px;
+            border-radius: 50px;
+            padding: 0px 10px;
+        }
+
+        .dash-logo {
+            position: absolute;
+            top: 13%;
+            left: 15%;
+            transform: translate(-50%,-50%);
+            width: 300px;
+        }
+
+        .forgot-form form {
+            background-color: #fff;
+            max-width: 600px;
+            margin: auto;
+            padding: 50px 70px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        h1{
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 26px;
+            color: #07b5c2;
+            text-decoration: none;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body>
+    <div class="wrapper">
+        <img class="dash-logo" src="{% static 'dashboard/images/docket logo.png' %}" alt="docket logo">
+    </div>
 
+    <h1>Forgot Password</h1>
 
+    <div class="forgot-form">
     <form action="/postforgotpass/" method="POST">
             {% csrf_token %}
         <label for="email">Email address:</label>
         <input type="email" id="email" name="Email" placeholder="Email.." required><br><br>
         <input type="submit" value="Submit">
     </form>
+    </div>
 
 
 </body>

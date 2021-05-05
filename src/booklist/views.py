@@ -25,7 +25,7 @@ auth=firebase.auth()
 storage= firebase.storage()
 
 def englist_view(request,*args,**kwargs):
-  data= db.child("books").child("Engineering").get()
+  data= db.child("books").child("Computer Science").get()
   l= list()
   d= dict()
   s= str()
@@ -37,7 +37,7 @@ def englist_view(request,*args,**kwargs):
     s= d["downloadTokens"]
     l1[a]=s
   for i in l1:
-    path= "Engineering"+"/"+i+".pdf"
+    path= "Computer Science"+"/"+i+".pdf"
     print(path)
     url= storage.child("books").child(path).get_url(None)
     url= url+"&token="+l1[i]
@@ -47,7 +47,7 @@ def englist_view(request,*args,**kwargs):
   return render(request,"englist.html",{"list":l1.items()})
 
 def medlist_view(request,*args,**kwargs):
-  data= db.child("books").child("Medical").get()
+  data= db.child("books").child("Mechanical").get()
   l= list()
   d= dict()
   s= str()
@@ -59,7 +59,7 @@ def medlist_view(request,*args,**kwargs):
     s= d["downloadTokens"]
     l1[a]=s
   for i in l1:
-    path= "Medical"+"/"+i+".pdf"
+    path= "Mechanical"+"/"+i+".pdf"
     print(path)
     url= storage.child("books").child(path).get_url(None)
     url= url+"&token="+l1[i]
@@ -69,7 +69,7 @@ def medlist_view(request,*args,**kwargs):
   return render(request,"medlist.html",{"list":l1.items()})
 
 def lawlist_view(request,*args,**kwargs):
-  data= db.child("books").child("Law").get()
+  data= db.child("books").child("Information Technology").get()
   l= list()
   d= dict()
   s= str()
@@ -81,7 +81,7 @@ def lawlist_view(request,*args,**kwargs):
     s= d["downloadTokens"]
     l1[a]=s
   for i in l1:
-    path= "Law"+"/"+i+".pdf"
+    path= "Information Technology"+"/"+i+".pdf"
     print(path)
     url= storage.child("books").child(path).get_url(None)
     url= url+"&token="+l1[i]
@@ -92,7 +92,7 @@ def lawlist_view(request,*args,**kwargs):
 
 
 def ecolist_view(request,*args,**kwargs):
-  data= db.child("books").child("Economics").get()
+  data= db.child("books").child("EXTC").get()
   l= list()
   d= dict()
   s= str()
@@ -104,7 +104,7 @@ def ecolist_view(request,*args,**kwargs):
     s= d["downloadTokens"]
     l1[a]=s
   for i in l1:
-    path= "Economics"+"/"+i+".pdf"
+    path= "EXTC"+"/"+i+".pdf"
     print(path)
     url= storage.child("books").child(path).get_url(None)
     url= url+"&token="+l1[i]
@@ -139,7 +139,7 @@ def otherlist_view(request,*args,**kwargs):
   return render(request,"otherlist.html",{"list":l1.items()})
 
 def codelist_view(request,*args,**kwargs):
-  data= db.child("books").child("Coding").get()
+  data= db.child("books").child("Chemical").get()
   l= list()
   d= dict()
   s= str()
@@ -151,7 +151,7 @@ def codelist_view(request,*args,**kwargs):
     s= d["downloadTokens"]
     l1[a]=s
   for i in l1:
-    path= "Coding"+"/"+i+".pdf"
+    path= "Chemical"+"/"+i+".pdf"
     print(path)
     url= storage.child("books").child(path).get_url(None)
     url= url+"&token="+l1[i]
@@ -161,7 +161,7 @@ def codelist_view(request,*args,**kwargs):
   return render(request,"codelist.html",{"list":l1.items()})
 
 def alluploads_view(request,*args,**kwargs):
-  l2= ['Engineering','Medical','Law','Coding','Economics','Others']
+  l2= ['Computer Science','Mechanical','Information Technology','Chemical','EXTC','Others']
   l3= dict()
   for j in l2:
     l= list()

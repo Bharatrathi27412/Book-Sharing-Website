@@ -40,7 +40,7 @@ def search_view(request,*args,**kwargs):
   #   print(search)
   search = str(request.POST.get('box'))
   #print(search)
-  l2= ['Engineering','Medical','Law','Coding','Economics','Others']
+  l2= ['Computer Science','Mechanical','Information Technology','Chemical','EXTC','Others']
   l3= dict()
   l9 = {}
   for j in l2:
@@ -69,8 +69,8 @@ def search_view(request,*args,**kwargs):
       # pat = [a-zA-z]*Res[a-zA-Z]*
       if re.match(search,pattern,flags=re.IGNORECASE):
         l9[pattern] = l3[pattern]
-      else:
-        return HttpResponse("<h1> !!!NOT FOUND!!! </h1>") 
+      # else:
+      #   return HttpResponse("<h1> !!!NOT FOUND!!! </h1>") 
       
 
   #print(l)
