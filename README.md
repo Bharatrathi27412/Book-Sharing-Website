@@ -1,3 +1,7 @@
+[![Bharat's GitHub stats](https://github-readme-stats.vercel.app/api?username=Bharatrathi27412)](https://github.com/Bharatrathi27412/github-readme-stats)
+
+
+
 # Docket - Book-Sharing-Website
 
 This is a platform where users from around the world will be able to upload any book so that other users can use it.
