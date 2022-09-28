@@ -1,4 +1,4 @@
-[![Bharat's GitHub stats](https://github-readme-stats.vercel.app/api?username=Bharatrathi27412)](https://github.com/Bharatrathi27412/github-readme-stats)
+
 
 
 
