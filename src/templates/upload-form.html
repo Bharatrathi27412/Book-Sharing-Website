@@ -153,6 +153,30 @@
     opacity: 0.6;
 }
 
+.tacbox {
+  display:block;
+  padding: 7px;
+  margin: 15px;
+  border: 3px solid #ddd;
+  background-color: #eee;
+  max-width: 800px;
+}
+
+input {
+  height: 2em;
+  width: 2em;
+  vertical-align: middle;
+}
+/*
+label {
+  outline: 2px dotted #f00;
+}
+
+/*
+label:after {
+  content: attr(for);
+}*/
+
 @media (max-width: 576px) {
     .registration-form form{
         padding: 50px 20px;
@@ -217,27 +241,52 @@
                     <option value="Information Technology"> Information Technology</option>
                     <option value="EXTC"> EXTC</option>
                     <option value="Chemical"> Chemical</option>
-                    <option value="Others"> Others</option>
+                    <option value="Others">Assignments & Others</option>
                 </select>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" name="author" placeholder="Author Name">
+                <input type="text" class="form-control item" id="idfield" name="author" placeholder="Author Name">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" name="description" placeholder="Description (max 30 characters)" maxlength="30">
+                <input type="text" class="form-control item" id="desc" name="description" placeholder="Description (max 30 characters)" maxlength="30">
             </div>
-            <div class="form-group">
-              <input type= "file" id="uploadFile" name="books" class="form-control item" accept=".pdf"/>
+            <div class="form-group" style="margin-top:5px ;margin-bottom:8px;">
+              <input id="fileupld" style="padding:5px; height:43px;"type= "file" id="uploadFile" name="books" class="form-control item" accept=".pdf"/>
           </div>
+          
+        <div class="tacbox" style="margin-top:10px;">
+            <input id="checkboxterms" type="checkbox" onchange="document.getElementById('submitbtn').disabled = !this.checked;" />
+            <label for="checkbox"> I agree to these <a href="#">Terms and Conditions</a>.</label>
+        </div>
+        
             <div class="form-group">
-              <button type="submit" class="btn btn-block create-account">Upload File</button>
+              <button type="submit" id="submitbtn" disabled class="btn btn-block create-account">Upload File</button>
             </div>
             <div>
         </form>
 
     </div>
-    <script>
+    
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(() => {
+        $("input[type=text]").keyup(onFormUpdate);
+        $("input[type=file]").keyup(onFormUpdate);
+        $("input[type=checkbox]").change(onFormUpdate);
+        })
+
+        function onFormUpdate() {
+        const namebook = $("#idfield").val();
+        const desc = $("#desc").val();
+        const acceptedTnC = $("#checkboxterms").prop('checked');
+
+        if (namebook && desc && acceptedTnC) {
+            $("#submitbtn").removeAttr("disabled");
+        } else {
+            $("#register").attr("disabled", "disabled");
+        }
+        }
+    </script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <!-- <script src="scripts.js"></script> -->
 </body>
